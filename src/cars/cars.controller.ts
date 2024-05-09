@@ -10,8 +10,7 @@ import {
     Post, 
     UsePipes } from '@nestjs/common';
 import { CarsService } from './cars.service';
-import { CreateCarDto } from './dto/create-car.dto';
-import { UpateCarDto } from './dto/update-car.dto';
+import { CreateCarDto, UpateCarDto } from './dto';
 
 @Controller('cars')
 export class CarsController {
