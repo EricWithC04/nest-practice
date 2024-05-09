@@ -21,4 +21,16 @@ export class CarsService {
         },
     ]
 
+    findAll() {
+        return this.cars
+    }
+
+    findById(id: number) {
+        const car = this.cars.find(car => car.id === +id)
+        if (!car) {
+            return { message: 'Car not found' }
+        } else {
+            return car
+        }
+    }
 }
