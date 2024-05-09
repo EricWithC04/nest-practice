@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Car } from './interfaces/car.interface';
 import { v4 as uuid } from 'uuid'
 import { CreateCarDto } from './dto/create-car.dto';
@@ -55,6 +55,8 @@ export class CarsService {
         let updatedCar = this.findById(id)
 
         if (!updatedCar) throw new NotFoundException(`Car with id '${id}' not found`)
+
+        if (updateCarDto.id && updateCarDto.id !== id) throw new BadRequestException(`The ids are differents`)
 
         this.cars = this.cars.map( car => {
             if (car.id === id) {
