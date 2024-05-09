@@ -70,4 +70,15 @@ export class CarsService {
 
         return updatedCar
     }
+
+    delete(id: string) {
+
+        const carToDelete = this.findById(id)
+
+        if (!carToDelete) throw new NotFoundException(`Car with id '${id}' not found`)
+
+        this.cars = this.cars.filter(car => car.id !== id)
+
+        return { message: `Car with id '${id}' was deleted` }
+    }
 }
