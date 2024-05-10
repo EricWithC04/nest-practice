@@ -75,6 +75,15 @@ export class BrandsService {
   }
 
   remove(id: string) {
-    return `This action removes a #${id} brand`;
+    const brand = this.brands.find(brand => brand.id === id)
+
+    if (!brand) throw new NotFoundException(`Brand with id '${id}' not found`)
+
+    this.brands = this.brands.filter(brand => brand.id !== id)
+
+    return {
+      message: "Brand deleted successfully",
+      brand
+    }
   }
 }
