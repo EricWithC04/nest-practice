@@ -8,21 +8,11 @@ import { UpateCarDto } from './dto';
 export class CarsService {
 
     private cars: Array<Car> = [
-        {
-            id: uuid(),
-            brand: 'Toyota',
-            model: 'Corolla'
-        },
-        {
-            id: uuid(),
-            brand: 'Honda',
-            model: 'Civic'
-        },
-        {
-            id: uuid(),
-            brand: 'Jeep',
-            model: 'Compass'
-        },
+        // {
+        //     id: uuid(),
+        //     brand: 'Toyota',
+        //     model: 'Corolla'
+        // },
     ]
 
     findAll() {
