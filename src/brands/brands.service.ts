@@ -24,17 +24,17 @@ export class BrandsService {
       createdAt: Date.now()
     },
   ]
-  
+
   create(createBrandDto: CreateBrandDto) {
     return 'This action adds a new brand';
   }
 
   findAll() {
-    return `This action returns all brands`;
+    return this.brands;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} brand`;
+  findById(id: number) {
+    return this.brands[id];
   }
 
   update(id: number, updateBrandDto: UpdateBrandDto) {
