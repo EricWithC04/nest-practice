@@ -23,12 +23,12 @@ export class BrandsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBrandDto: UpdateBrandDto) {
-    return this.brandsService.update(+id, updateBrandDto);
+  update(@Param('id', new ParseUUIDPipe({ version: '4' })) id: string, @Body() updateBrandDto: UpdateBrandDto) {
+    return this.brandsService.update(id, updateBrandDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.brandsService.remove(+id);
+  remove(@Param('id', new ParseUUIDPipe({ version: '4' })) id: string) {
+    return this.brandsService.remove(id);
   }
 }
