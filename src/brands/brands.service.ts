@@ -53,7 +53,25 @@ export class BrandsService {
   }
 
   update(id: string, updateBrandDto: UpdateBrandDto) {
-    return `This action updates a #${id} brand`;
+    const brand = this.brands.find(brand => brand.id === id)
+
+    if (!brand) throw new NotFoundException(`Brand with id '${id}' not found`)
+
+    this.brands = this.brands.map(brand => {
+      if (brand.id === id) {
+        return {
+          ...brand,
+          ...updateBrandDto,
+          updatedAt: Date.now()
+        }
+      }
+      return brand
+    })
+
+    return {
+      message: 'Brand updated successfully',
+      brand
+    }
   }
 
   remove(id: string) {
