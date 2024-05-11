@@ -71,4 +71,8 @@ export class CarsService {
 
         return { message: `Car with id '${id}' was deleted` }
     }
+
+    fillCarsWithSeedData( cars: Array<Car> ) {
+        this.cars = cars
+    }
 }

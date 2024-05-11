@@ -76,4 +76,8 @@ export class BrandsService {
       brand
     }
   }
+
+  fillBrandsWithSeedData( brands: Array<Brand> ) {
+    this.brands = brands
+  }
 }
